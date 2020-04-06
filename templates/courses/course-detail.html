@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2 class="mb-4">Details of the course</h2>
+    <h5>{{ object.title }}</h5>
+    <p>{{ object.description }}</p>
+    <ul class="list-group">
+      {% for lesson in object.lessons %}
+      <li class="list-group-item">
+        <a href="{{ lesson.get_absolute_url }}">{{lesson}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+ {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Details of the lesson</h1>
+    {% if object is not None %}
+      <p>{{ object.title }}</p>
+      <p>{{ object.description }}</p>
+      <video
+       src="static{{object.video_url}}"
+       controls
+       controlsList="nodownload"
+       poster="{{object.thumbnail.url}}"
+       width="300"
+       height="200">Sorry your browser doesn't support embedded video</video>
+    {% else %}
+      <h3>Upgrade Membership</h3>
+      <p>To view this course you'll need to upgrade your membership</p>
+      <a href="{% url 'memberships:select-membership' %}" class="btn btn-warning">Check out memberships</a>
+    {% endif %}
+  </div>
+ {% endblock %}

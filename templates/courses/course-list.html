@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+    <h1>Here is our courses</h1>
+    <ul class="list-group">
+      {% for object in object_list %}
+      <li class="list-group-item"><a href="{{ object.get_absolute_url}}">{{object.title}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+ {% endblock %}
